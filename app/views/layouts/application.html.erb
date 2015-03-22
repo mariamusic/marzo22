@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Creativers</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  <img src="http://i172.photobucket.com/albums/w40/nicolecadosch/logo_zpslpl537f6.png" alt="" class="img-responsive"/>
+                    <!-- <img src="assets/img/vivaldi-logo.png" alt="" class="img-responsive" /> -->
+                  
+                </a>
+            </div>
+            <div class="navbar-collapse collapse navbar-right scroll-me">
+                <ul class="nav navbar-nav ">
+                    <li>
+                     <%= link_to 'Cómo Funciona',  static_pages_how_it_work_path%>
+                    </li>
+                    <li class= "divider"></li>
+                    <% if user_signed_in? %>
+                    <li>
+                      <%= link_to current_user.name , edit_user_registration_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %>
+                    </li>
+                    <% else %>
+                      <li class="active">
+                      <%= link_to 'Registro', new_user_registration_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Iniciar Sesión', new_user_session_path %>
+                    </li>
+
+                    <li><%= link_to "Contacto",static_pages_contact_path %></li>
+                                          
+
+                    <% end %>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- NAVBAR CODE END -->
+
+
+     
+
+<%= yield %>
+
+   <footer>
+        © 2015 Crearmy.com  | <a href="http://www.designbootstrap.com/" target="_blank">by Fiona Records</a>
+    </footer>
+
+</body>
+</html>

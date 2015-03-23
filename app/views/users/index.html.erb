@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+       <th>email</th>
       <th>Country</th>
       <th>Category</th>
       <th>Profession</th>
@@ -22,6 +23,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
+        <td><%= user.email %></td>
         <td><%= user.country %></td>
         <td><%= user.category %></td>
         <td><%= user.profession %></td>

@@ -44,14 +44,17 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.active_support.deprecation = :log
 
-   config.action_mailer.smtp_settings ={
-     :enable_starttls_auto => true,
-     :address            => 'smtp.gmail.com',
-     :port               => 587,
-     :tls                => true,
-     :domain             => 'gmail.com',
-     :authentication     => :plain,
-     :user_name          => 'crearmy@gmail.com',
-     :password           => 'Linaresa1.' 
-   }
-end
+    config.action_mailer.delivery_method = :smtp
+   config.action_mailer.perform_deliveries = true
+   config.action_mailer.raise_delivery_errors = true
+   config.action_mailer.smtp_settings = {
+     :address => "smtp.gmail.com",
+     :port => 587,
+     :domain => "gmail.com",
+     :user_name => "crearmy",
+     :password => "Linaresa1.",
+     :authentication => 'plain',
+     :enable_starttls_auto => true
+}
+  end
+
